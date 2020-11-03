@@ -1,0 +1,21 @@
+{
+    "name": "phantomea/branches",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Miroslav Ziaran",
+            "email": "miroslav@lqd.cz"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"Phantomea\\Branches\\": "src/"}
+    },
+    "require": {
+        "php": ">=7.3.3"
+    },
+    "require-dev":
+    {
+        "nette/tester":"*"
+    }
+}
