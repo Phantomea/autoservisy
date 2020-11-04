@@ -1,3 +1,6 @@
+includes:
+	- pages.neon
+
 storm:
 	default:
 		migrator:
