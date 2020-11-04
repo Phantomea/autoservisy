@@ -9,13 +9,31 @@
         }
     ],
     "autoload": {
-        "psr-4": {"Phantomea\\Branches\\": "src/"}
+        "psr-4": {"Phantomea\\Autoservis\\": "src/"}
+    },
+    "autoload-dev": {
+        "psr-4": { "Phantomea\\Autoservis\\": "tests/" }
     },
     "require": {
-        "php": ">=7.3.3"
+        "php": ">=7.3.3",
+        "lqdlib/storm": "@dev",
+        "lqdlib/modules": "@dev",
+        "nette/nette": "~2.4.0"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url":  "git@gitlab.com:lqdlib/storm.git"
+        },
+        {
+            "type": "vcs",
+            "url":  "git@gitlab.com:lqdlib/modules.git"
+        }
+    ],
     "require-dev":
     {
-        "nette/tester":"*"
+        "nette/tester":"*",
+        "squizlabs/php_codesniffer": "3.*",
+        "slevomat/coding-standard": "~4.0"
     }
 }

@@ -1,0 +1,5 @@
+pages:
+	pages:
+		branch_detail:
+			url: 'servis/<address>'
+			plink: 'Web:Index:detail'

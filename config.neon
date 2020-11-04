@@ -1,0 +1,47 @@
+storm:
+	default:
+		migrator:
+			structure:
+				branch: Phantomea\Branches\DB\Branch
+				branchPremium: Phantomea\Autoservis\DB\BranchPremium
+				branchRating: Phantomea\Autoservis\DB\BranchRating
+				branchStatistics: Phantomea\Autoservis\DB\BranchStatistic
+				carBody: Phantomea\Autoservis\DB\CarBody
+				carBrand: Phantomea\Autoservis\DB\CarBrand
+				carModel: Phantomea\Autoservis\DB\CarModel
+				carMotorization: Phantomea\Autoservis\DB\CarMotorization
+				company: Phantomea\Autoservis\DB\Company
+				openingHour: Phantomea\Autoservis\DB\OpeningHour
+				branchCarBrand: Phantomea\Autoservis\DB\NxN\BranchCarBrand
+				city: Phantomea\Autoservis\DB\City
+				day: Phantomea\Autoservis\DB\Day
+				country: Phantomea\Autoservis\DB\Country
+			data:
+				- /vendor/lqdlib/blog/src/data/initData.json
+
+services:
+	# repos
+	branchRepo: Phantomea\Autoservis\DB\BranchRepository
+	branchPremiumRepo: Phantomea\Autoservis\DB\BranchPremium
+	branchRatingRepo: Phantomea\Autoservis\DB\BranchRatingRepository
+	branchStaticRepo: Phantomea\Autoservis\DB\BranchStatisticRepository
+	carBodyRepo: Phantomea\Autoservis\DB\CarBodyRepository
+	carBrandRepo: Phantomea\Autoservis\DB\CarBrandRepository
+	carModelRepo: Phantomea\Autoservis\DB\CarModelRepository
+	carMotoRepo: Phantomea\Autoservis\DB\CarModelRepository
+	cityRepo: Phantomea\Autoservis\DB\CityRepository
+	companyRepo: Phantomea\Autoservis\DB\CompanyRepository
+	countryRepo: Phantomea\Autoservis\DB\CountryRepository
+	dayRepo: Phantomea\Autoservis\DB\DayRepository
+	openingHourRepo: Phantomea\Autoservis\DB\OpeningHourRepository
+
+userfiles:
+	branch:
+		thumb:
+		origin:
+	company:
+		thumb:
+		origin:
+	car-model:
+		thumb:
+		origin:
