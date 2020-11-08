@@ -2,6 +2,7 @@
 
 namespace Phantomea\Autoservis\DB;
 
+use Nette\Security\IIdentity;
 use Storm\Model;
 
 /**
@@ -51,7 +52,6 @@ class Company extends Model
 	 */
 	public $dic;
 	
-	
 	/**
 	 * @column{"nullable": true}
 	 * @var string
@@ -81,6 +81,12 @@ class Company extends Model
 	 * @column{"default":"0", "locale":true}
 	 */
 	public $hidden = false;
+	
+	/**
+	 * @column{"type":"timestamp","default":"CURRENT_TIMESTAMP"}
+	 * @var int
+	 */
+	public $registered;
 	
 	public function getName(): string
 	{

@@ -5,7 +5,7 @@ storm:
 	default:
 		migrator:
 			structure:
-				branch: Phantomea\Branches\DB\Branch
+				branch: Phantomea\Autoservis\DB\Branch
 				branchPremium: Phantomea\Autoservis\DB\BranchPremium
 				branchRating: Phantomea\Autoservis\DB\BranchRating
 				branchStatistics: Phantomea\Autoservis\DB\BranchStatistic
@@ -19,13 +19,17 @@ storm:
 				city: Phantomea\Autoservis\DB\City
 				day: Phantomea\Autoservis\DB\Day
 				country: Phantomea\Autoservis\DB\Country
-			data:
-				- /vendor/lqdlib/blog/src/data/initData.json
+				user: Phantomea\Autoservis\DB\User
+				role: Phantomea\Autoservis\DB\Role
+				permission: Phantomea\Autoservis\DB\Permission
 
 services:
+	authenticator: Phantomea\Autoservis\Authenticator
+	authorizator: Phantomea\Autoservis\Authorizator
+
 	# repos
 	branchRepo: Phantomea\Autoservis\DB\BranchRepository
-	branchPremiumRepo: Phantomea\Autoservis\DB\BranchPremium
+	branchPremiumRepo: Phantomea\Autoservis\DB\BranchPremiumRepository
 	branchRatingRepo: Phantomea\Autoservis\DB\BranchRatingRepository
 	branchStaticRepo: Phantomea\Autoservis\DB\BranchStatisticRepository
 	carBodyRepo: Phantomea\Autoservis\DB\CarBodyRepository
@@ -37,6 +41,13 @@ services:
 	countryRepo: Phantomea\Autoservis\DB\CountryRepository
 	dayRepo: Phantomea\Autoservis\DB\DayRepository
 	openingHourRepo: Phantomea\Autoservis\DB\OpeningHourRepository
+	userRepo: Phantomea\Autoservis\DB\UserRepository
+	roleRepo: Phantomea\Autoservis\DB\RoleRepository
+	permissionRepo: Phantomea\Autoservis\DB\PermissionRepository
+
+	# factories
+	branchBoxFactory: Phantomea\Autoservis\Control\Factory\IBranchBox
+	ratingControlFactory: Phantomea\Autoservis\Control\Factory\IRatingControl
 
 userfiles:
 	branch:
