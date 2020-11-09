@@ -14,7 +14,7 @@ class BranchRepository extends Repository
 		return "ROUND(". $this->getBasicRadiusSql($latitude, $longitude).", 0) as distance ";
 	}
 	
-	private function getNameWhereExpression(string $name)
+	private function getNameWhereExpression(string $name): string
 	{
 		$baseExpression = "(company_branch.name LIKE '%" . $name ."%' OR company_company.name LIKE '%". $name . "%'";
 		

@@ -1,3 +1,7 @@
+parameters:
+	noreplyMail: 'no-reply@najdiservisy.sk'
+	infoMail: 'info@najdiservisy.sk'
+
 includes:
 	- pages.neon
 
