@@ -5,7 +5,7 @@ namespace Phantomea\Autoservis\DB;
 use Storm\Model;
 
 /**
- * @table{"name":"autoservis_carModel"}
+ * @table{"name":"autoservis_carmodel"}
  */
 class CarModel extends Model
 {

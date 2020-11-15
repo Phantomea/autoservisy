@@ -9,40 +9,22 @@ use Storm\Model;
  */
 class BranchStatistic extends Model
 {
-	public const TYPE = [
-		'view' => 'view',
-		'emailSend' => 'emailSend',
-		'show' => 'show',
-		'phoneClicked' => 'phoneClicked',
-	];
 	
 	/**
 	 * @var int
-	 * @column{"type":"int"}
-	 */
-	public $amount;
-	
-	/**
-	 * @var int
-	 * @column{"type":"int"}
+	 * @column{"type":"int", "default": 0}
 	 */
 	public $view = 0;
 	
 	/**
 	 * @var int
-	 * @column{"type":"int"}
-	 */
-	public $emailSend = 0;
-	
-	/**
-	 * @var int
-	 * @column{"type":"int"}
+	 * @column{"type":"int", "default": 0}
 	 */
 	public $show = 0;
 	
 	/**
 	 * @var int
-	 * @column{"type":"int"}
+	 * @column{"type":"int", "default": 0}
 	 */
 	public $phoneClicked = 0;
 	

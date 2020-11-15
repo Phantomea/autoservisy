@@ -1,7 +1,3 @@
-parameters:
-	noreplyMail: 'no-reply@najdiservisy.sk'
-	infoMail: 'info@najdiservisy.sk'
-
 includes:
 	- pages.neon
 
@@ -26,6 +22,10 @@ storm:
 				user: Phantomea\Autoservis\DB\User
 				role: Phantomea\Autoservis\DB\Role
 				permission: Phantomea\Autoservis\DB\Permission
+				client: Phantomea\Autoservis\DB\Client
+				clientCar: Phantomea\Autoservis\DB\ClientCar
+				carCheck: Phantomea\Autoservis\DB\CarCheck
+				job: Phantomea\Autoservis\DB\Job
 
 services:
 	authenticator: Phantomea\Autoservis\Authenticator
@@ -39,7 +39,7 @@ services:
 	carBodyRepo: Phantomea\Autoservis\DB\CarBodyRepository
 	carBrandRepo: Phantomea\Autoservis\DB\CarBrandRepository
 	carModelRepo: Phantomea\Autoservis\DB\CarModelRepository
-	carMotoRepo: Phantomea\Autoservis\DB\CarModelRepository
+	carMotoRepo: Phantomea\Autoservis\DB\CarMotorizationRepository
 	cityRepo: Phantomea\Autoservis\DB\CityRepository
 	companyRepo: Phantomea\Autoservis\DB\CompanyRepository
 	countryRepo: Phantomea\Autoservis\DB\CountryRepository
@@ -48,6 +48,10 @@ services:
 	userRepo: Phantomea\Autoservis\DB\UserRepository
 	roleRepo: Phantomea\Autoservis\DB\RoleRepository
 	permissionRepo: Phantomea\Autoservis\DB\PermissionRepository
+	clientRepo: Phantomea\Autoservis\DB\ClientRepository
+	clientCarRepo: Phantomea\Autoservis\DB\ClientCarRepository
+	carCheckRepo: Phantomea\Autoservis\DB\CarCheckRepository
+	jobRepo: Phantomea\Autoservis\DB\JobRepository
 
 	# factories
 	branchBoxFactory: Phantomea\Autoservis\Control\Factory\IBranchBox

@@ -10,29 +10,7 @@ use Storm\Model;
  */
 class Company extends Model
 {
-	/**
-	 * @column{"nullable": true}
-	 * @var string
-	 */
-	public $owner;
-	
-	/**
-	 * @column{"nullable": true}
-	 * @var string
-	 */
-	public $name;
-	
-	/**
-	 * @column{"nullable": true}
-	 * @var string
-	 */
-	public $clearName;
-	
-	/**
-	 * @column{"type": "int", "nullable": true}
-	 * @var int
-	 */
-	public $orsrId;
+	use CompanyTrait;
 	
 	/**
 	 * @column{"nullable": true}
@@ -44,37 +22,7 @@ class Company extends Model
 	 * @column{"nullable": true}
 	 * @var string
 	 */
-	public $ico;
-	
-	/**
-	 * @column{"nullable": true}
-	 * @var string
-	 */
-	public $dic;
-	
-	/**
-	 * @column{"nullable": true}
-	 * @var string
-	 */
-	public $address;
-	
-	/**
-	 * @column{"nullable": true}
-	 * @var string
-	 */
 	public $web;
-	
-	/**
-	 * @column{"nullable": true}
-	 * @var string
-	 */
-	public $email;
-	
-	/**
-	 * @column{"nullable": true}
-	 * @var string
-	 */
-	public $phone;
 	
 	/**
 	 * @var bool
@@ -87,6 +35,12 @@ class Company extends Model
 	 * @var int
 	 */
 	public $registered;
+	
+	/**
+	 * @relation{"Branch":":fk_company"}
+	 * @var \Phantomea\Autoservis\DB\Branch[]
+	 */
+	public $branches;
 	
 	public function getName(): string
 	{

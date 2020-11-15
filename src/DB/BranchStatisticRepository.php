@@ -10,33 +10,24 @@ class BranchStatisticRepository extends Repository
 {
 	public function getCompanyStatistics(Company $company): Rows
 	{
-		return $this->many()
-			->join('autoservis_branchstatistic', 'autoservis_branch', 'fk_branch', 'uuid')
+		return $this->many()->join('autoservis_branchstatistic', 'autoservis_branch', 'fk_branch', 'uuid')
 			->where('autoservis_branch.fk_company', $company->getPK());
 	}
 	
-	public function getCompanyViewStatistics(Company $company): Rows
+	public function getCompanySumStatistics(Company $company): Rows
 	{
-		return $this->getCompanyStatistics($company)
-			->where('type', BranchStatistic::TYPE['view']);
+		$query = "SELECT SUM(autoservis_branchstatistic.view) as view, SUM(autoservis_branchstatistic.show) as sshow, SUM(autoservis_branchstatistic.phoneClicked) as phoneClicked FROM autoservis_branchstatistic ";
+		$query .= "JOIN autoservis_branch ON autoservis_branchstatistic.fk_branch = autoservis_branch.uuid ";
+		$query .= "WHERE autoservis_branch.fk_company = '".$company->getPK()."'";
+		
+		return $this->fromSql($query);
 	}
 	
-	public function getCompanySearchStatistics(Company $company): Rows
+	public function getCompanyTodayStatistics(Company $company): BranchStatistic
 	{
-		return $this->getCompanyStatistics($company)
-			->where('type', BranchStatistic::TYPE['show']);
-	}
-	
-	public function getCompanyClickStatistics(Company $company): Rows
-	{
-		return $this->getCompanyStatistics($company)
-			->where('type', BranchStatistic::TYPE['phoneClicked']);
-	}
-	
-	public function getCompanyAmountStatistics(Company $company): Collection
-	{
-		return $this->fromSql('SELECT SUM(autoservis_branchstatistic.amount) as countAmount FROM autoservis_branchstatistic')
-			->join('autoservis_branchstatistic', 'autoservis_branch', 'fk_branch', 'uuid')
-			->where('autoservis_branch.fk_company', $company->getPK());
+		$query = "SELECT SUM(autoservis_branch.view) as view, SUM(autoservis_branch.show) as sshow, SUM(autoservis_branch.phoneClicked) as phoneClicked FROM autoservis_branch ";
+		$query .= "WHERE autoservis_branch.fk_company = '".$company->getPK()."'";
+		
+		return $this->fromSql($query)->first();
 	}
 }
