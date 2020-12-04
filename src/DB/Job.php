@@ -13,13 +13,13 @@ use Storm\Model;
  */
 class Job extends Model
 {
-	public const PATTERN = '00000000001';
+	public const PATTERN = '00000000';
 	
 	/**
 	 * @column
 	 * @var string
 	 */
-	public $name;
+	public $subject;
 	
 	/**
 	 * @column
@@ -40,21 +40,22 @@ class Job extends Model
 	public $created;
 	
 	/**
-	 * @column{"type":"datetime"}
-	 * @var \Nette\Utils\DateTime
-	 */
-	public $start;
-	
-	/**
 	 * @column{"type":"datetime","nullable":true}
 	 * @var \Nette\Utils\DateTime
 	 */
 	public $end;
 	
 	/**
+	 * @var bool
+	 * @column{"type":"tinyint","default":0}
+	 */
+	public $hidden = false;
+	
+	/**
+	 * @var \Phantomea\Autoservis\DB\ClientCar
 	 * @relation{"ClientCar": "fk_car"}
 	 * @constraint
-	 * @column{"name": "fk_car", "nullable":true}
+	 * @column{"name": "fk_car"}
 	 */
 	public $car;
 	
@@ -73,5 +74,15 @@ class Job extends Model
 		$generatedNumber = (new DateTime())->format('Y') . (\substr(self::PATTERN, 0, -$numberOfJobsString) . $numberOfExistingJobs);
 		
 		$this->number = $generatedNumber;
+	}
+	
+	public function getCreated(): DateTime
+	{
+		return new DateTime($this->created);
+	}
+	
+	public function getEnd(): ?DateTime
+	{
+		return $this->end  ? new DateTime($this->end) : null;
 	}
 }

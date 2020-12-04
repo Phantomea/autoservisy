@@ -30,4 +30,11 @@ class Client extends Model
 	 * @var \Phantomea\Autoservis\DB\ClientCar[]
 	 */
 	public $cars;
+	
+	public function getFullName(): string
+	{
+		return $this->name ? $this->name.' - ' . $this->owner : $this->owner;
+	}
+	
+	
 }

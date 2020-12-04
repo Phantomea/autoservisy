@@ -18,11 +18,6 @@ class Company extends Model
 	 */
 	public $description;
 	
-	/**
-	 * @column{"nullable": true}
-	 * @var string
-	 */
-	public $web;
 	
 	/**
 	 * @var bool

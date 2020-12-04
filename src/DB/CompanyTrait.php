@@ -5,12 +5,14 @@ namespace Phantomea\Autoservis\DB;
 trait CompanyTrait
 {
 	/**
+	 * If client is company, this prop is it's name
 	 * @column{"nullable": true}
 	 * @var string
 	 */
 	public $name;
 	
 	/**
+	 * Contact person
 	 * @column{"nullable": true}
 	 * @var string
 	 */
@@ -45,4 +47,15 @@ trait CompanyTrait
 	 * @var string
 	 */
 	public $phone;
+	
+	/**
+	 * @column{"nullable": true}
+	 * @var string
+	 */
+	public $web;
+	
+	public function isCompany(): bool
+	{
+		return (bool) $this->ico;
+	}
 }
